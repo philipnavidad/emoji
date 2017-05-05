@@ -28,6 +28,7 @@
     <!-- Loading Images to Asset Manager -->
 
     <img id="earsb-icon" src="earsb-icon.jpg"/>
+    <img id="like" src="like.png"/>
 
     <!-- Adding Mixins to the Asset Manager -->
 
@@ -44,10 +45,10 @@
   <a-entity id="earsb-head-instantiator" geometry="primitive: box" material="src: #earsb-icon" position='-0.81 0.205 -1.65' rotation="-25 0 0" scale="0.15 0.15 0.03" n-cockpit-parent instantiator="on: click; group: headg; mixin: earsb earsb-head;" wire="on: mousedown; emit: b1; targets: #b1s" wire__clicktoanim="on: click; emit: toggle;" wire__removetoanim="on: removed-last; emit: toggle;" altspace-cursor-collider="enabled: true">
     <a-animation begin="toggle" attribute="material.color" from="white" to="hotpink" dur="200" direction="alternate"></a-animation>
   </a-entity>
-
-  <a-entity id="suitb-spine-instantiator" geometry="primitive: box" material="src: #suitb-icon" position='-01.01 0.205 -1.65' rotation="-25 0 0" scale="0.15 0.15 0.03" n-cockpit-parent instantiator="on: click; group: spineg; mixin: suitb suitb-spine;" wire="on: mousedown; emit: b1; targets: #b1s" wire__clicktoanim="on: click; emit: toggle;" wire__removetoanim="on: removed-last; emit: toggle;" altspace-cursor-collider="enabled: true">
+  <a-entity id="like-instantiator" geometry="primitive: box" material="src: #like" position='-0.81 0.205 -1.65' rotation="-25 0 0" scale="0.15 0.15 0.03" n-cockpit-parent instantiator="on: click; group: headg; mixin: earsb earsb-head;" wire="on: mousedown; emit: b1; targets: #b1s" wire__clicktoanim="on: click; emit: toggle;" wire__removetoanim="on: removed-last; emit: toggle;" altspace-cursor-collider="enabled: true">
     <a-animation begin="toggle" attribute="material.color" from="white" to="hotpink" dur="200" direction="alternate"></a-animation>
   </a-entity>
+  
 
   <!-- Defining Sound Effects for Eggs and Buttons -->
 
