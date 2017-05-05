@@ -34,6 +34,9 @@
 
     <a-mixin id="earsb" cached-obj-model="obj: #earsb-obj; mtl: #earsb-mtl" collapse-model scale="1.1 1.1 1.1"></a-mixin>
     <a-mixin id="earsb-head" rotation="0 180 0" n-skeleton-parent="part: head;" position="0 0.06 0" sync sync-n-skeleton-parent></a-mixin>
+    
+     <a-mixin id="like" src="#like" collapse-model scale="1.1 1.1 1.1"></a-mixin>
+    <a-mixin id="like-head" rotation="0 180 0" n-skeleton-parent="part: head;" position="0 1 0" sync sync-n-skeleton-parent></a-mixin>
 
   </a-assets>
 
@@ -45,15 +48,16 @@
   <a-entity id="earsb-head-instantiator" geometry="primitive: box" material="src: #earsb-icon" position='-0.81 0.205 -1.65' rotation="-25 0 0" scale="0.15 0.15 0.03" n-cockpit-parent instantiator="on: click; group: headg; mixin: earsb earsb-head;" wire="on: mousedown; emit: b1; targets: #b1s" wire__clicktoanim="on: click; emit: toggle;" wire__removetoanim="on: removed-last; emit: toggle;" altspace-cursor-collider="enabled: true">
     <a-animation begin="toggle" attribute="material.color" from="white" to="hotpink" dur="200" direction="alternate"></a-animation>
   </a-entity>
-  <a-entity id="like-instantiator" geometry="primitive: box" material="src: #like" position='-0.81 0.205 -1.65' rotation="-25 0 0" scale="0.15 0.15 0.03" n-cockpit-parent instantiator="on: click; group: headg; mixin: earsb earsb-head;" wire="on: mousedown; emit: b1; targets: #b1s" wire__clicktoanim="on: click; emit: toggle;" wire__removetoanim="on: removed-last; emit: toggle;" altspace-cursor-collider="enabled: true">
+  
+  <a-entity id="like-instantiator" geometry="primitive: box" material="src: #like" position='-0.81 0.205 -1.65' rotation="-25 0 0" scale="0.15 0.15 0.03" n-cockpit-parent instantiator="on: click; group: headg; mixin: like like-head;" wire="on: mousedown; emit: yay; targets: #yay" wire__clicktoanim="on: click; emit: toggle;" wire__removetoanim="on: removed-last; emit: toggle;" altspace-cursor-collider="enabled: true">
     <a-animation begin="toggle" attribute="material.color" from="white" to="hotpink" dur="200" direction="alternate"></a-animation>
   </a-entity>
   
 
   <!-- Defining Sound Effects for Eggs and Buttons -->
-
-  <a-entity id="egg1s" position="0 0 0" n-sound="src: coin1.wav; on: eggc; minDistance: 1000; maxDistance: 3000" n-skeleton-parent="part: spine;"></a-entity>
   <a-entity id="b1s" position="0 0 0" n-sound="src: b1.wav; volume: 0.2; on: b1; minDistance: 1000; maxDistance: 3000" n-skeleton-parent="part: spine;"></a-entity>
+
+  <a-entity id="yay" position="0 0 0" n-sound="src: yay.mp3; volume: 0.2; on: b1; minDistance: 1000; maxDistance: 3000" n-skeleton-parent="part: spine;" sync sync-n-sound></a-entity>  
 
 
 </a-scene>
