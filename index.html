@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <meta charset="utf-8">
+  <title>Emoji Test</title>
+  <meta name="Emoji Test" content="Emoji Test">
+  <script src="https://aframe.io/releases/0.3.0/aframe.min.js"></script>
+  <script src="https://cdn.rawgit.com/AltspaceVR/AltspaceSDK/v2.4.2/dist/altspace.min.js"></script>
+
+
+</head>
+<body>
+
+  <!-- Create the Scene -->
+
+<a-scene altspace="verticalAlign: middle; fullspace: true" vr-mode-ui="enabled: false" sync-system="author: Phil; app: emoji">
+
+  <!-- Asset Loading -->
+
+  <a-assets>
+
+    <!-- Loading OBJ Models to Asset Manager -->
+
+    <a-asset-item id="earsb-mtl" src="earsb.mtl"></a-asset-item>
+    <a-asset-item id="earsb-obj" src="ears.obj"></a-asset-item>
+
+    <!-- Loading Images to Asset Manager -->
+
+    <img id="earsb-icon" src="earsb-icon.jpg"/>
+
+    <!-- Adding Mixins to the Asset Manager -->
+
+    <a-mixin id="earsb" cached-obj-model="obj: #earsb-obj; mtl: #earsb-mtl" collapse-model scale="1.1 1.1 1.1"></a-mixin>
+    <a-mixin id="earsb-head" rotation="0 180 0" n-skeleton-parent="part: head;" position="0 0.06 0" sync sync-n-skeleton-parent></a-mixin>
+
+  </a-assets>
+
+  <!-- Attaching Background Image for Cockpit Egg Count -->
+
+  <a-entity id="eggcountb" geometry="primitive: plane" material="src: #collected" position='-0.91 0.405 -1.76' rotation="-25 0 0" scale="0.375 0.175 0.03" n-cockpit-parent></a-entity>
+
+  <!-- Attaching Instantiator Buttons to the Cockpit -->
+  <a-entity id="earsb-head-instantiator" geometry="primitive: box" material="src: #earsb-icon" position='-0.81 0.205 -1.65' rotation="-25 0 0" scale="0.15 0.15 0.03" n-cockpit-parent instantiator="on: click; group: headg; mixin: earsb earsb-head;" wire="on: mousedown; emit: b1; targets: #b1s" wire__clicktoanim="on: click; emit: toggle;" wire__removetoanim="on: removed-last; emit: toggle;" altspace-cursor-collider="enabled: true">
+    <a-animation begin="toggle" attribute="material.color" from="white" to="hotpink" dur="200" direction="alternate"></a-animation>
+  </a-entity>
+
+  <a-entity id="suitb-spine-instantiator" geometry="primitive: box" material="src: #suitb-icon" position='-01.01 0.205 -1.65' rotation="-25 0 0" scale="0.15 0.15 0.03" n-cockpit-parent instantiator="on: click; group: spineg; mixin: suitb suitb-spine;" wire="on: mousedown; emit: b1; targets: #b1s" wire__clicktoanim="on: click; emit: toggle;" wire__removetoanim="on: removed-last; emit: toggle;" altspace-cursor-collider="enabled: true">
+    <a-animation begin="toggle" attribute="material.color" from="white" to="hotpink" dur="200" direction="alternate"></a-animation>
+  </a-entity>
+
+  <!-- Defining Sound Effects for Eggs and Buttons -->
+
+  <a-entity id="egg1s" position="0 0 0" n-sound="src: coin1.wav; on: eggc; minDistance: 1000; maxDistance: 3000" n-skeleton-parent="part: spine;"></a-entity>
+  <a-entity id="b1s" position="0 0 0" n-sound="src: b1.wav; volume: 0.2; on: b1; minDistance: 1000; maxDistance: 3000" n-skeleton-parent="part: spine;"></a-entity>
+
+
+</a-scene>
+</body>
+</html>
