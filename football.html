@@ -32,7 +32,7 @@
 	
 	<!-- emoji button -->
 	<a-entity id="emoji-button" mixin="emoji-button-mix"
-		wire="on: click; emit: play; targets: #emoji1, #emoji2, #emoji3, #emoji-sound;"
+		wire="on: click; emit: play; targets: #emoji1, #emoji-sound;"
     		wire__over="on: mouseenter; emit: over;"
 		wire__leave="on: mouseleave; emit: leave;"
 		n-cockpit-parent altspace-cursor-collider="enabled: true">
@@ -49,8 +49,6 @@
 	
 	<!-- emoji -->
 	<a-entity id="emoji1" instantiator="on: play; mixin: emoji1-mix"></a-entity>
-  	<a-entity id="emoji2" instantiator="on: play; mixin: emoji2-mix"></a-entity>
-  	<a-entity id="emoji3" instantiator="on: play; mixin: emoji3-mix"></a-entity>
 
 </a-scene>
 </body>
