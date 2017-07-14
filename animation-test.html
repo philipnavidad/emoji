@@ -13,10 +13,14 @@
 		<img id="button" src="files/wur-button.png">
 		<img id="skeleton" src="like.png">
 		<a-mixin id="emoji1-mix"
-			position="0 0.5 0" rotation="-10 180 0" scale="0.75 0.75 0.75" 
+			position="0 0.5 0" rotation="-10 180 0" scale="0.0001 0.0001 0.0001" 
 		 	geometry="primitive: plane; width: 1; height: 0.5" material="transparent: true; src: #skeleton"
 			n-skeleton-parent="part: head;"
-			sync sync-n-skeleton-parent></a-mixin>
+			sync sync-n-skeleton-parent
+		 	animation="property: scale; dur: 200;
+                           easing: easeInSine; to: 0.75 0.75 0.75"
+            		animation__hide="property: scale; dur: 200;
+                           easing: easeInSine; delay: 500; to: 0.0001 0.0001 0.0001"></a-mixin>
 		<a-mixin id="emoji2-mix"
 			position="0 1 0" rotation="20 180 0" scale="0.25 0.25 0.25"
 		 	geometry="primitive: plane; width: 1; height: 0.5" material="transparent: true; src: #skeleton"
@@ -51,13 +55,7 @@
 	</a-entity>
 	
 	<!-- emoji -->
-	<a-entity id="emoji1" instantiator="on: play; mixin: emoji1-mix" scale="0.0001 0.0001 0.0001" sync sync-transform
-            animation="property: scale; dur: 200;
-                           easing: easeInSine; to: 1 1 1"
-            animation__hide="property: scale; dur: 200;
-                           easing: easeInSine; delay: 500; to: 0.0001 0.0001 0.0001">
-		
-	</a-entity>
+	<a-entity id="emoji1" instantiator="on: play; mixin: emoji1-mix" scale="0.0001 0.0001 0.0001" sync sync-transform></a-entity>
 	<a-entity id="emoji2-parent" scale="0.0001 0.0001 0.0001" sync sync-transform
 	  	animation="property: scale; dur: 200;
                            easing: easeInSine; delay: 250; to: 1 1 1"
