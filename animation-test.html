@@ -20,12 +20,14 @@
             		animation="property: scale; dur: 400;
                            easing: easeInSine; delay: 200; to: 0.0001 0.0001 0.0001"></a-mixin>
 		<a-mixin id="emoji2-mix"
-			position="0 1 0" rotation="0 180 20" scale="0.25 0.25 0.25"
+			position="0 0.5 0" rotation="0 180 20" scale="0.25 0.25 0.25"
 		 	geometry="primitive: plane; width: 1; height: 0.5" material="transparent: true; src: #skeleton"
 			n-skeleton-parent="part: head;"
 			sync sync-n-skeleton-parent
             		animation="property: scale; dur: 200;
-                           easing: easeInSine; delay: 600; to: 0.0001 0.0001 0.0001"></a-mixin>
+                           easing: easeInSine; delay: 600; to: 0.0001 0.0001 0.0001"
+		 	animation__position="property: position; dur: 200;
+                           easing: easeInSine; to: 0 1 0"></a-mixin>
 		<a-mixin id="emoji3-mix"
 			position="0 1.5 0" rotation="0 180 -30" scale="0.5 0.5 0.5"
 		 	geometry="primitive: plane; width: 1; height: 0.5" material="transparent: true; src: #skeleton"
