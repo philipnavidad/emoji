@@ -35,7 +35,7 @@
 	
 	<!-- emoji button -->
 	<a-entity id="emoji-button" mixin="emoji-button-mix"
-		wire="on: click; emit: play; targets: #emoji1, #emoji2, #emoji3, #emoji-sound;"
+		wire="on: click; emit: play; targets: #emoji1, #emoji2-parent, #emoji3, #emoji-sound;"
     		wire__over="on: mouseenter; emit: over;"
 		wire__leave="on: mouseleave; emit: leave;"
 		n-cockpit-parent altspace-cursor-collider="enabled: true">
@@ -58,11 +58,11 @@
                            easing: easeInSine; delay: 500; to: 0.0001 0.0001 0.0001">
 		
 	</a-entity>
-	<a-entity id="emoji1" instantiator="on: play; mixin: emoji2-mix" scale="0.0001 0.0001 0.0001" sync sync-transform
-            animation="property: scale; dur: 200;
-                           easing: easeInSine; delay: 250; to: 1 1 1"
-            animation__hide="property: scale; dur: 200;
-                           easing: easeInSine; delay: 750; to: 0.0001 0.0001 0.0001">
+	<a-entity id="emoji2-parent" scale="0.0001 0.0001 0.0001" sync sync-transform>
+		<a-animation attribute="scale" begin="play" dur="100" from="0.0001 0.0001 0.0001" to="1 1 1"></a-animation>
+		<a-animation attribute="scale" begin="play" delay="500" dur="100" from="1 1 1" to="0.0001 0.0001 0.0001"></a-animation>
+	  	<a-entity id="emoji1" instantiator="on: play; mixin: emoji2-mix" sync sync-transform>
+		</a-entity>
 	</a-entity>
 	<a-entity id="emoji1" instantiator="on: play; mixin: emoji3-mix" scale="0.0001 0.0001 0.0001" sync sync-transform
             animation="property: scale; dur: 200;
