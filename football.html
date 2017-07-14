@@ -48,7 +48,10 @@
 	</a-entity>
 	
 	<!-- emoji -->
-	<a-entity id="emoji1" instantiator="on: play; mixin: emoji1-mix"></a-entity>
+	<a-entity id="emoji1" mixin="emoji1-mix" scale="0.0001 0.0001 0.0001" sync sync-transform>
+		<a-animation attribute="scale" begin="play" dur="100" from="0.0001 0.0001 0.0001" to="1 1 1"></a-animation>
+		<a-animation attribute="scale" begin="play" delay="500" dur="100" from="1 1 1" to="0.0001 0.0001 0.0001"></a-animation>
+	</a-entity>
 
 </a-scene>
 </body>
