@@ -20,7 +20,7 @@
             		animation="property: scale; dur: 500;
                            easing: easeInSine; delay: 200; to: 0.0001 0.0001 0.0001"></a-mixin>
 		<a-mixin id="emoji2-mix"
-			position="0 0.5 0" rotation="0 180 -10" scale="0.75 0.75 0.75" 
+			position="0 0.5 0" rotation="0 180 -10" scale="0.0001 0.0001 0.0001" 
 		 	geometry="primitive: plane; width: 1; height: 0.5" material="transparent: true;"
 			n-skeleton-parent="part: head;"
 			sync sync-n-skeleton-parent
@@ -38,8 +38,8 @@
     		wire__over="on: mouseenter; emit: over;"
 		wire__leave="on: mouseleave; emit: leave;"
 		n-cockpit-parent altspace-cursor-collider="enabled: true">
-		<a-animation attribute="scale" begin="over" dur="100" from="1 1 1" to="1.1 1.1 1.1" fill="forwards" direction="normal" repeat="0"></a-animation>
-		<a-animation attribute="scale" begin="leave" dur="100" from="1.1 1.1 1.1" to="1 1 1" fill="forwards" direction="normal" repeat="0"></a-animation>
+		<a-animation attribute="scale" begin="over" dur="100" from="0.5 0.5 0.5" to="0.6 0.6 0.6" fill="forwards" direction="normal" repeat="0"></a-animation>
+		<a-animation attribute="scale" begin="leave" dur="100" from="0.6 0.6 0.6" to="0.5 0.5 0.5" fill="forwards" direction="normal" repeat="0"></a-animation>
 	</a-entity>
   
   	<a-entity id="emoji-sound" 
