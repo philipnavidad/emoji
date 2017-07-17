@@ -20,17 +20,15 @@
 			position="0 0.5 0" rotation="0 180 -10" scale="0.75 0.75 0.75" 
 		 	geometry="primitive: plane; width: 1; height: 0.5" material="transparent: true; src: #skeleton"
 			n-skeleton-parent="part: head;"
-			sync sync-n-skeleton-parent 
+			n-sound="src: files/notify.wav; autoplay: true; oneshot: true;"
             		animation="property: scale; dur: 500;
                            easing: easeInSine; delay: 200; to: 0.0001 0.0001 0.0001"></a-mixin>
-		<a-mixin id="emoji-sound-mix" 
-		 	n-sound="src: files/notify.wav;"></a-mixin>
 	</a-entity>
 	</a-assets>
 	
 	<!-- emoji button -->
 	<a-entity id="emoji-button" mixin="emoji-button-mix"
-		wire="on: click; emit: play; targets: #emoji, #emoji-sound;"
+		wire="on: click; emit: play; targets: #emoji;"
     		wire__over="on: mouseenter; emit: over;"
 		wire__leave="on: mouseleave; emit: leave;"
 		n-cockpit-parent altspace-cursor-collider="enabled: true" sync sync-transorm>
@@ -40,6 +38,5 @@
 	
 	<!-- emoji -->
 	<a-entity id="emoji" instantiator="on: play; mixin: emoji-mix"></a-entity>
-  	<a-entity id="emoji-sound" instantiator="on: play; mixin: emoji-sound-mix"></a-entity>
 </body>
 </html>
