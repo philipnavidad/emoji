@@ -24,6 +24,10 @@
 			 sync sync-n-skeleton-parent
             		animation="property: scale; dur: 500;
                            easing: easeInSine; delay: 200; to: 0.0001 0.0001 0.0001"></a-mixin>
+		<a-mixin id="sound-mix"
+			n-skeleton-parent="part: head;"
+			n-sound="src: files/notify.wav; autoplay: true; oneshot: true;"
+			 sync sync-n-skeleton-parent></a-mixin>
 	</a-entity>
 	</a-assets>
 	
@@ -38,6 +42,6 @@
 	</a-entity>
 	
 	<!-- emoji -->
-	<a-entity id="emoji" instantiator="on: play; mixin: emoji-mix; removeLast: false;"></a-entity>
+	<a-entity id="emoji" instantiator="on: play; mixin: emoji-mix sound-mix; removeLast: false;"></a-entity>
 </body>
 </html>
