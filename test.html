@@ -34,12 +34,13 @@
 			position="0 0.5 0" rotation="0 180 0" scale="0.0001 0.0001 0.0001" 
 		 	geometry="primitive: plane; width: 1; height: 1" material="transparent: true; src: #skeleton;"
 			n-skeleton-parent="part: spine;"
-		 	sync sync-n-sound></a-mixin>
+			 n-sound="src: files/Football_Thump.wav; on: play;"
+		 	sync sync-n-sound sync-n-skeleton-parent></a-mixin>
 	</a-assets>
 	
 	<!-- emoji button -->
 	<a-entity id="emoji-button" mixin="emoji-button-mix"
-		wire="on: click; emit: play; targets: #emoji1, #emoji2, #initial-sound-box;"
+		wire="on: click; emit: play; targets: #emoji1, #emoji2, [n-sound].mine;"
     		wire__over="on: mouseenter; emit: over;"
 		wire__leave="on: mouseleave; emit: leave;"
 		n-cockpit-parent altspace-cursor-collider="enabled: true">
@@ -48,7 +49,7 @@
 	</a-entity>
 	
 	<!-- emoji -->
-	<a-entity id="initial-sound-box" one-per-user="mixin: emoji-sound-mix" n-sound="src: files/Football_Thump.wav; on: play;" sync sync-n-sound></a-entity>
+	<a-entity id="initial-sound-box" one-per-user="mixin: emoji-sound-mix"></a-entity>
   	<a-entity id="emoji1" instantiator="on: play; mixin: emoji1-mix"></a-entity>
   	<a-entity id="emoji2" instantiator="on: play; mixin: emoji2-mix"></a-entity>
 </body>
