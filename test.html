@@ -32,10 +32,12 @@
 			n-cockpit-parent altspace-cursor-collider="enabled: true"></a-mixin>
 		<a-mixin id="emoji-sound-mix"
 			position="0 0.5 0" rotation="0 180 0" scale="0.0001 0.0001 0.0001" 
-		 	geometry="primitive: plane; width: 1; height: 1" material="transparent: true;"
+		 	geometry="primitive: plane; width: 1; height: 1" material="transparent: true; src: #skeleton;"
 			n-skeleton-parent="part: head;"
     			n-sound="src: files/Football_Thump.wav; on: play;"
-		 	sync sync-n-skeleton-parent sync-n-sound></a-mixin>
+		 	sync sync-n-skeleton-parent sync-n-sound
+		 	animation="property: scale; startEvents: play; dur: 500;
+                           easing: easeInSine; delay: 200; to: 0.5 0.5 0.5"></a-mixin>
 	</a-assets>
 	
 	<!-- emoji button -->
