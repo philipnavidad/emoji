@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Emoji Test</title>
+  <script src="https://aframe.io/releases/0.3.0/aframe.min.js"></script>
+  <script src="https://cdn.rawgit.com/AltspaceVR/AltspaceSDK/v2.4.2/dist/altspace.min.js"></script>
+  <script src="https://unpkg.com/aframe-animation-component/dist/aframe-animation-component.min.js"></script>
+</head>
+
+<body>
+  <a-scene altspace="fullspace: true" sync-system="author: phil; app: emoji">
+	<a-assets>
+		<img id="button" src="files/american-football-md.png">
+		<img id="skeleton" src="files/american-football-md.png">
+		<a-mixin id="emoji-button-mix"
+			position="0.6 -0.15 -0.8" rotation="-30 0 0" scale="0.5 0.5 0.5"
+		 	geometry="primitive: plane; width: 0.4; height: 0.2" material="transparent: true; src: #button"
+			n-cockpit-parent altspace-cursor-collider="enabled: true"></a-mixin>
+		<a-mixin id="emoji-mix"
+			position="0 0.5 0" rotation="0 180 -10"
+		 	geometry="primitive: plane; width: 1; height: 0.5" material="transparent: true; src: #skeleton"
+			n-skeleton-parent="part: head;"
+			 sync sync-n-skeleton-parent></a-mixin>
+		<a-mixin id="sound-mix"
+			n-skeleton-parent="part: head;"
+			n-sound="src: files/notify.wav; on: sound; oneshot: true;"
+			 sync sync-n-skeleton-parent></a-mixin>
+	</a-entity>
+	</a-assets>
+	
+	<!-- emoji button -->
+	<a-entity id="emoji-button" mixin="emoji-button-mix"
+		wire="on: click; emit: play; targets: #emoji;"
+    wire__sound="on: click; emit: sound; targets; #emoji-sound;"
+    wire__over="on: mouseenter; emit: over;"
+		wire__leave="on: mouseleave; emit: leave;"
+		n-cockpit-parent altspace-cursor-collider="enabled: true" sync sync-transorm>
+		<a-animation attribute="scale" begin="over" dur="100" from="0.5 0.5 0.5" to="0.6 0.6 0.6" fill="forwards" direction="normal" repeat="0"></a-animation>
+		<a-animation attribute="scale" begin="leave" dur="100" from="0.6 0.6 0.6" to="0.5 0.5 0.5" fill="forwards" direction="normal" repeat="0"></a-animation>
+	</a-entity>
+	
+	<!-- emoji -->
+	<a-entity id="emoji" mixin="emoji-mix" scale="0.0001 0.0001 0.0001" sync sync-transform>
+    <a-animation attribute="scale" begin="play" dur="1" from="0.0001 0.0001 0.0001" to="0.6 0.6 0.6" fill="forwards" direction="normal" repeat="0"></a-animation>
+		<a-animation attribute="scale" begin="play" delay="1000" dur="200" from="0.6 0.6 0.6" to="0.0001 0.0001 0.0001" fill="forwards" direction="normal" repeat="0"></a-animation>
+  </a-entity>
+  <a-entity id="emoji-sound" mixin="sound-mix" sync sync-n-sound></a-entity>
+</body>
+</html>
