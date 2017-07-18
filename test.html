@@ -33,11 +33,8 @@
 		<a-mixin id="emoji-sound-mix"
 			position="0 0.5 0" rotation="0 180 0" scale="0.0001 0.0001 0.0001" 
 		 	geometry="primitive: plane; width: 1; height: 1" material="transparent: true; src: #skeleton;"
-			n-skeleton-parent="part: head;"
-    			n-sound="src: files/Football_Thump.wav; on: play;"
-		 	sync sync-n-skeleton-parent sync-n-sound
-		 	animation="property: scale; startEvents: play; dur: 500;
-                           easing: easeInSine; delay: 200; to: 0.5 0.5 0.5"></a-mixin>
+			n-skeleton-parent="part: spine;"
+		 	sync sync-n-sound></a-mixin>
 	</a-assets>
 	
 	<!-- emoji button -->
@@ -51,7 +48,7 @@
 	</a-entity>
 	
 	<!-- emoji -->
-	<a-entity id="initial-sound-box" one-per-user="mixin: emoji-sound-mix"></a-entity>
+	<a-entity id="initial-sound-box" one-per-user="mixin: emoji-sound-mix" n-sound="src: files/Football_Thump.wav; on: play;" sync sync-n-sound></a-entity>
   	<a-entity id="emoji1" instantiator="on: play; mixin: emoji1-mix"></a-entity>
   	<a-entity id="emoji2" instantiator="on: play; mixin: emoji2-mix"></a-entity>
 </body>
