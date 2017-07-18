@@ -16,8 +16,7 @@
 			position="0 0.5 0" rotation="0 180 -10" scale="0.5 0.5 0.5" 
 		 	geometry="primitive: plane; width: 1; height: 0.5" material="transparent: true; src: #skeleton"
 			n-skeleton-parent="part: head;"
-			sync sync-n-skeleton-parent sync-n-sound
-    			n-sound="src: files/Football_Thump.wav; on: play"
+			sync sync-n-skeleton-parent
             		animation="property: scale; dur: 500;
                            easing: easeInSine; delay: 200; to: 0.0001 0.0001 0.0001"></a-mixin>
 		<a-mixin id="emoji2-mix"
@@ -31,11 +30,19 @@
 			position="0.6 -0.15 -0.8" rotation="-30 0 0" scale="0.5 0.5 0.5"
 		 	geometry="primitive: plane; width: 0.4; height: 0.2" material="transparent: true; src: #button"
 			n-cockpit-parent altspace-cursor-collider="enabled: true"></a-mixin>
+		<a-mixin id="emoji-sound-mix"
+			position="0 0.5 0" rotation="0 180 -10" scale="0.0001 0.0001 0.0001" 
+		 	geometry="primitive: plane; width: 1; height: 1" material="transparent: true;"
+			n-skeleton-parent="part: head;"
+			sync sync-n-skeleton-parent sync-n-sound
+    			n-sound="src: files/Football_Thump.wav; on: play"
+            		animation="property: scale; dur: 500;
+                           easing: easeInSine; delay: 200; to: 0.0001 0.0001 0.0001"></a-mixin>
 	</a-assets>
 	
 	<!-- emoji button -->
 	<a-entity id="emoji-button" mixin="emoji-button-mix"
-		wire="on: click; emit: play; targets: #emoji1, #emoji2;"
+		wire="on: click; emit: play; targets: #emoji1, #emoji2, #initial-sound-box;"
     		wire__over="on: mouseenter; emit: over;"
 		wire__leave="on: mouseleave; emit: leave;"
 		n-cockpit-parent altspace-cursor-collider="enabled: true">
@@ -44,7 +51,8 @@
 	</a-entity>
 	
 	<!-- emoji -->
-	<a-entity id="emoji1" instantiator="on: play; mixin: emoji1-mix"></a-entity>
+	<a-entity id="initial-sound-box" one-per-user="mixin: emoji-sound-mix"></a-entity>
+  	<a-entity id="emoji1" instantiator="on: play; mixin: emoji1-mix"></a-entity>
   	<a-entity id="emoji2" instantiator="on: play; mixin: emoji2-mix"></a-entity>
 </body>
 </html>
