@@ -10,7 +10,7 @@
 <body>
   <a-scene altspace="fullspace: true" sync-system="author: phil; app: emoji">
 	<a-assets>
-		<img id="button" src="files/american-football-md.png">
+		<img id="button" src="files/football-emoji.png">
 		<img id="skeleton" src="files/american-football-md.png">
 		<a-mixin id="emoji1-mix"
 			position="0 0.5 0" rotation="0 180 -10" scale="0.5 0.5 0.5" 
@@ -28,7 +28,7 @@
                            easing: easeInSine; delay: 400; to: 0.0001 0.0001 0.0001"></a-mixin>
 		<a-mixin id="emoji-button-mix"
 			position="0.6 -0.15 -0.8" rotation="-30 0 0" scale="0.5 0.5 0.5"
-		 	geometry="primitive: plane; width: 0.4; height: 0.2" material="transparent: true; src: #button"
+		 	geometry="primitive: plane; width: 0.2; height: 0.2" material="transparent: true; src: #button"
 			n-cockpit-parent altspace-cursor-collider="enabled: true"></a-mixin>
 		<a-mixin id="emoji-sound-mix"
 			 n-sound="src: files/Football_Thump.wav; on: play;"
