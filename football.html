@@ -10,15 +10,15 @@
 <body>
   <a-scene altspace="fullspace: true" sync-system="author: phil; app: emoji">
 	<a-assets>
-		<img id="button" src="files/doink.png">
-		<img id="skeleton" src="files/american-football-md.png">
+		<img id="button" src="files/football-emoji.png">
+		<img id="skeleton" src="files/doink.png">
 		<a-mixin id="emoji1-mix"
 			position="0 0.5 0" rotation="0 180 -10" scale="0.5 0.5 0.5" 
 		 	geometry="primitive: plane; width: 0.5; height: 1" material="transparent: true; src: #skeleton"
 			n-skeleton-parent="part: head;"
 			sync sync-n-skeleton-parent
             		animation="property: scale; dur: 500;
-                           easing: easeInSine; delay: 200; to: 0.0001 0.0001 0.0001"></a-mixin>
+                           easing: easeInSine; delay: 400; to: 0.0001 0.0001 0.0001"></a-mixin>
 		<a-mixin id="emoji2-mix"
 			position="0 0.8 0" rotation="0 180 20" scale="0.0001 0.0001 0.0001" 
 		 	geometry="primitive: plane; width: 1; height: 0.5" material="transparent: true;"
