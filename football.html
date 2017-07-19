@@ -14,14 +14,14 @@
 		<img id="button" src="files/football-emoji.png">
 		<img id="skeleton" src="files/doink.png">
 		<a-mixin id="emoji1-mix"
-			position="0 0.5 0" rotation="0 180 0" scale="0.6 0.6 0.6"
+			position="0 0.5 0" rotation="0 180 0" scale="0.6 0.6 0.6" 
 		 	geometry="primitive: plane; width: 0.5; height: 1" cached-material="transparent: true; src: #skeleton"
 			n-skeleton-parent="part: head;"
 			sync sync-n-skeleton-parent
             		animation="property: scale; dur: 500;
                            easing: easeInSine; delay: 400; to: 0.0001 0.0001 0.0001"></a-mixin>
 		<a-mixin id="emoji2-mix"
-			position="0 0.8 0" rotation="0 180 20" scale="0.0001 0.0001 0.0001"
+			position="0 0.8 0" rotation="0 180 20" scale="0.0001 0.0001 0.0001" 
 		 	geometry="primitive: plane; width: 1; height: 0.5" cached-material="transparent: true;"
 			n-skeleton-parent="part: head;"
 			sync sync-n-skeleton-parent
@@ -36,7 +36,7 @@
 			n-skeleton-parent="part: spine;"
 		 	sync sync-n-sound sync-n-skeleton-parent></a-mixin>
 	</a-assets>
-
+	
 	<!-- emoji button -->
 	<a-entity id="emoji-button" mixin="emoji-button-mix"
 		wire="on: click; emit: play; targets: #emoji1, #emoji2, [n-sound].mine;"
@@ -46,7 +46,7 @@
 		<a-animation attribute="scale" begin="over" dur="100" from="0.5 0.5 0.5" to="0.6 0.6 0.6" fill="forwards" direction="normal" repeat="0"></a-animation>
 		<a-animation attribute="scale" begin="leave" dur="100" from="0.6 0.6 0.6" to="0.5 0.5 0.5" fill="forwards" direction="normal" repeat="0"></a-animation>
 	</a-entity>
-
+	
 	<!-- emoji -->
 	<a-entity id="initial-sound-box" one-per-user="mixin: emoji-sound-mix"></a-entity>
   	<a-entity id="emoji1" instantiator="on: play; mixin: emoji1-mix"></a-entity>
